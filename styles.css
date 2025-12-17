@@ -486,8 +486,8 @@ section {
 
 .about-layout {
     display: grid;
-    grid-template-columns: 0.35fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 0.4fr 1fr;
+    gap: 3rem;
     align-items: start;
 }
 
@@ -498,54 +498,54 @@ section {
 
 .about-logo {
     width: 100%;
-    max-width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid var(--gold);
+    max-width: 200px;
+    height: auto;
+    border-radius: 20px;
+    border: 3px solid var(--gold);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-    margin: 0 auto 2rem;
-    display: block;
+    margin-bottom: 2rem;
     animation: profilePulse 3s ease-in-out infinite;
 }
 
-.achievements-section {
-    background: var(--mid-grey);
-    padding: 1.25rem;
-    border-radius: 12px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    margin-top: 1rem;
-}
-
-.achievements-section h3 {
-    font-size: 1.2rem;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-    animation: goldSparkle 3s ease-in-out infinite;
-    text-align: center;
-}
-
-.achievements-list {
+.leadership-badges {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1rem;
 }
 
-.achievement-item {
-    background: var(--black);
-    padding: 0.65rem 0.85rem;
-    border-radius: 8px;
+.badge {
+    background: var(--mid-grey);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+}
+
+.badge:hover {
+    transform: translateX(5px);
+    border-color: var(--gold);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.badge-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.4));
+}
+
+.badge-text h4 {
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+    animation: goldSparkle 3s ease-in-out infinite;
+}
+
+.badge-text p {
     font-size: 0.8rem;
     color: var(--text-grey);
-    border-left: 3px solid var(--gold);
-    transition: all 0.3s;
-    line-height: 1.4;
-}
-
-.achievement-item:hover {
-    background: var(--mid-grey);
-    transform: translateX(5px);
-    border-left-width: 4px;
+    margin: 0;
 }
 
 .about-right {
@@ -671,27 +671,6 @@ section {
     margin-top: 1rem;
     padding-top: 0.75rem;
     border-top: 1px solid rgba(212, 175, 55, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.timeline-item .skill-tag {
-    padding: 0.4rem 0.9rem;
-    background: var(--black);
-    border-radius: 6px;
-    font-size: 0.75rem;
-    color: var(--gold);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    transition: all 0.3s;
-    font-weight: 500;
-}
-
-.timeline-item .skill-tag:hover {
-    background: var(--gold);
-    color: var(--black);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 /* Projects - Compact 3 Column */
@@ -707,11 +686,14 @@ section {
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.2);
     transition: all 0.3s;
-    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--gold);
     box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
 }
@@ -769,37 +751,6 @@ section {
     font-size: 0.7rem;
     color: var(--text-grey);
     border: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.project-card {
-    position: relative;
-}
-
-.code-btn-top {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--gold);
-    color: var(--black);
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    z-index: 10;
-    transition: all 0.3s;
-}
-
-.code-btn-top:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-}
-
-.project-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
 }
 
 /* Contact - Compact */
@@ -880,18 +831,13 @@ footer p {
         display: block;
     }
     
-    .achievements-section {
-        padding: 1rem;
+    .leadership-badges {
+        flex-direction: row;
+        overflow-x: auto;
     }
     
-    .achievement-item {
-        font-size: 0.8rem;
-        padding: 0.75rem;
-    }
-    
-    .about-logo {
-        max-width: 180px;
-        height: 180px;
+    .badge {
+        min-width: 200px;
     }
 
     .hero-text h1 {
